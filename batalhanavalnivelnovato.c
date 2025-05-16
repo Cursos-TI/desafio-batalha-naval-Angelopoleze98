@@ -3,13 +3,62 @@
 // Desafio Batalha Naval - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
+// Tamanho fixo do tabuleiro
+#define TAMANHO_TABULEIRO 10
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+// Tamanho fixo dos navios
+#define TAMANHO_NAVIO 3
 
+int main()
+{
+    // Inicializa o tabuleiro com água (0)
+    int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO] = {{0}};
+
+    // Declara e inicializa os vetores para os navios
+    int navio_horizontal[TAMANHO_NAVIO] = {3, 3, 3};
+    int navio_vertical[TAMANHO_NAVIO] = {3, 3, 3};
+
+    // Posiciona os navios no tabuleiro
+    // Navio horizontal nas coordenadas (4, 4) a (4, 6)
+    for (int i = 0; i < TAMANHO_NAVIO; i++)
+    {
+        tabuleiro[3][3 + i] = navio_horizontal[i];
+    }
+
+    // Navio vertical nas coordenadas (9,4) a (8,2)
+    for (int i = 0; i < TAMANHO_NAVIO; i++)
+    {
+        tabuleiro[6 + i][2] = navio_vertical[i];
+    }
+
+    // Exibe o tabuleiro
+    printf("   ");
+    for (char letra = 'A'; letra <= 'J'; letra++)
+    {
+        printf("%c ", letra);
+    }
+    printf("\n");
+
+    for (int i = 0; i < TAMANHO_TABULEIRO; i++)
+    {
+        if (i < 9)
+        {
+            printf("%d  ", i + 1);
+        }
+        else
+        {
+            printf("%d ", i + 1);
+        }
+        for (int j = 0; j < TAMANHO_TABULEIRO; j++)
+        {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+
+  return 0;
+  
+}
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
@@ -36,5 +85,5 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    return 0;
-}
+
+
